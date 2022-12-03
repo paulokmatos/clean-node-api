@@ -4,14 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --watchAll",
+    "test:staged": "jest",
     "prepare": "husky install"
   },
   "lint-staged": {
     "*.js": [
       "standard --fix",
+      "npm run test:staged",
       "git add"
     ]
+  },
+  "standard": {
+    "env": ["jest"]
   },
   "author": "",
   "license": "ISC",
